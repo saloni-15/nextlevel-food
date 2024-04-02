@@ -3,15 +3,18 @@ import { useRef, useState } from "react";
 import classes from "./image-picker.module.css";
 import Image from "next/image";
 
+
 export default function ImagePicker({ label, name }) {
   const [pickedImage, setPickedImage] = useState();
   const imageInput = useRef();
 
   function handlePickClick() {
+    console.log("handlePickClick");
     imageInput.current.click();
   }
 
-  function handleImageChange(event) {
+  async function handleImageChange(event) {
+    console.log("handleImageChange");
     const file = event.target.files[0];
     if (!file) {
       setPickedImage(null);
@@ -22,6 +25,7 @@ export default function ImagePicker({ label, name }) {
       setPickedImage(fileReader.result);
     };
     fileReader.readAsDataURL(file);
+
   }
 
   return (
