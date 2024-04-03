@@ -5,9 +5,6 @@ import { storage } from "@/app/config";
 import classes from "./meal-item.module.css";
 
 export default async function MealItem({meal}) {
-  console.log("MealItem")
-  console.log(meal)
-
 const url = await getDownloadURL(ref(storage, `images/${meal._id}.jpeg`));
 
   return (

@@ -5,9 +5,7 @@ import {ref, getDownloadURL } from "firebase/storage";
 import { storage } from "@/app/config";
 
 export default async function MealDetailsPage({ params }) {
-  console.log("meal detail page" , params);
   const meal = await getMeal(params.id);
-  console.log("download image url", meal)
   const url = await getDownloadURL(ref(storage, `images/${meal._id}.jpeg`));
 
   meal.instructions = meal.instructions.replace(/\n/g, "<br />");

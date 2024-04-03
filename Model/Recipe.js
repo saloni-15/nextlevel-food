@@ -7,8 +7,6 @@ const Recipe = mongoose.Schema(
     summary: String,
     creator: String,
     creator_email: String,
-    image_url: String
-    
   },
   {
     timestamps: true,
